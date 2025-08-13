@@ -1,0 +1,35 @@
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+*.egg
+
+# Bases de datos locales
+*.db
+*.sqlite3
+
+# Archivos de GNS3 generados
+*.gns3project
+*.gns3p
+
+# Archivos de sistema y editores
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Archivos de caché y temporales
+*.log
+*.cache
+*.tmp
+
+# Archivos sensibles
+*.env
+*.key
+*.pem
