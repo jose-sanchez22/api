@@ -1,0 +1,37 @@
+hostname R3
+enable secret cisco123
+!
+interface Serial4/0
+ ip address 10.0.2.2 255.255.255.252
+ description Conexión a R1
+ no shutdown
+!
+interface GigabitEthernet1/0
+ ip address 172.16.0.1 255.255.255.0
+ description Conexión a ESW3
+ no shutdown
+!
+interface FastEthernet0/0
+ ip address 172.16.0.2 255.255.255.0
+ description Conexión a Cloud1
+ no shutdown
+!
+ip dhcp pool LAN-ESW3
+ network 172.16.0.0 255.255.255.0
+ default-router 172.16.0.1
+ dns-server 8.8.8.8
+ lease 0 8
+!
+ip dhcp excluded-address 172.16.0.1 172.16.0.10
+!
+snmp-server community public RO
+snmp-server host 192.168.100.10 version 2c public
+snmp-server enable traps
+!
+ip route 0.0.0.0 0.0.0.0 10.0.2.1
+!
+line vty 0 4
+ password cisco
+ login
+!
+end
